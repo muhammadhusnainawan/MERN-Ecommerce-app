@@ -18,7 +18,13 @@ connectDb();
 //middleware bodyparser
 app.use(express.json());
 
-app.use(cors());
+app.use(cors(
+  {
+    origin:["https://webapp-three-inky.vercel.app/"],
+    methods: ["POST", "GET"],
+    credentials: true
+  }
+));
 
 app.get("/", (req, res) => {
   res.send(`<h1>Welcome to Node Server</h1>`);
